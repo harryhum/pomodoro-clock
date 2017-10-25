@@ -1,0 +1,42 @@
+h1 {
+  text-align: center;
+}
+
+ul {
+  list-style: none;
+  text-align: center;
+  padding: 0px
+}
+
+li {
+    display: inline-block;
+}
+
+.adjust {
+  height: 100px;
+  width: 100px;
+}
+
+#timer {
+  text-align: center;
+  padding-bottom: 50px;
+}
+
+.timerDigit {
+  font-size: 6em;
+}
+
+#clock {
+  border-style: solid;
+  width: 500px;
+  margin: auto;
+  padding: 10px;
+}
+
+#work, #break {
+  font-size: 2em;
+}
+
+body {
+    background-image: url("../images/tomato-photo1-l.jpg");
+}
