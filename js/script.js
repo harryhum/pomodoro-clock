@@ -1,5 +1,6 @@
 var mode = 'work';
 var time;
+var alarm = new Audio('sounds/alarm.mp3');
 
 $(document).ready(function() {
   setWork();
@@ -17,7 +18,7 @@ function switchMode(startTime) {
       mode = 'rest';
       fromTime = $('#rest').text() * 1000 * 60;
     }
-    timer(mode);
+    clockDisplay(mode);
     countdown(fromTime);
 };
 
@@ -38,6 +39,7 @@ function countdown(fromTime) {
     };
     $('#countdown').text(timeDisplay);
     if (fromTime == 0) {
+      alarm.play();
       switchMode(startTime);
     }
   }, 1000);
@@ -47,13 +49,20 @@ function countdown(fromTime) {
   });
   $('#stop').on('click', function() {
     clearInterval(startTime);
+    alarm.pause();
+    alarm.currentTime = 0;
     clockDisplay(mode);
   });
   $('#reset').on('click', function() {
     clearInterval(startTime);
+    alarm.pause();
+    alarm.currentTime = 0;
+    mode = 'work';
     $('#work').text('25');
     $('#rest').text('5');
     clockDisplay(mode);
+    setWork();
+    setRest();
   });
 };
 
@@ -65,6 +74,16 @@ function modeChooser() {
   }
 };
 
+function colorChange() {
+  if (mode == 'work') {
+    $('#countdown').removeClass('red');
+    $('#countdown').addClass('green');
+  } else if (mode == 'rest') {
+    $('#countdown').removeClass('green');
+    $('#countdown').addClass('red');
+  };
+};
+
 function clockDisplay(mode) {
   modeChooser();
   var minutes = Math.floor((time % (1000 * 60 *60)) / (1000 * 60));
@@ -74,6 +93,7 @@ function clockDisplay(mode) {
   } else {
     var timeDisplay = minutes.toString() + ':' + seconds.toString();
   };
+  colorChange();
   $('#countdown').text(timeDisplay);
 };
 
@@ -96,10 +116,10 @@ function setWork() {
     clockDisplay(mode);;
   });
   $('#downWork').on('click', function() {
-    if (workTime > 0) {
+    if (workTime > 1) {
       workTime = workTime - 1;
     } else {
-      workTime = 0
+      workTime = 1
     };
     $('#work').text(workTime.toString());
     clockDisplay(mode);;
@@ -115,10 +135,10 @@ function setRest() {
     clockDisplay(mode);;
   });
   $('#downRest').on('click', function() {
-    if (restTime > 0) {
+    if (restTime > 1) {
       restTime = restTime - 1;
     } else {
-      restTime = 0
+      restTime = 1
     };
     $('#rest').text(restTime.toString());
     clockDisplay(mode);

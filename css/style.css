@@ -32,6 +32,8 @@ li {
   width: 500px;
   margin: auto;
   padding: 10px;
+  background-color: white;
+  opacity: 0.8;
 }
 
 #work, #rest {
@@ -40,4 +42,12 @@ li {
 
 body {
     background-image: url("../images/tomato-photo1-l.jpg");
+}
+
+.red {
+  color: red;
+}
+
+.green {
+  color: rgb(3, 150, 0);
 }
