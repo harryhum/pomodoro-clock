@@ -1,5 +1,18 @@
 h1 {
   text-align: center;
+  font-family: 'Gloria Hallelujah', cursive;
+}
+
+h3 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-family: 'Gloria Hallelujah', cursive;
+}
+
+p {
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+    font-family: 'Gloria Hallelujah', cursive;
 }
 
 ul {
@@ -23,17 +36,22 @@ li {
 }
 
 #countdown {
-  font-size: 6em;
+  font-size: 4em;
   margin: 10px;
 }
 
 #clock {
-  border-style: solid;
-  width: 500px;
+  width: 550px;
+  height: 550px;
   margin: auto;
-  padding: 10px;
-  background-color: white;
-  opacity: 0.8;
+  padding-right: 0px;
+  padding-left: 0px;
+  padding-top: 130px;
+  padding-bottom: 0px;
+  opacity: 1;
+  background-image: url('../images/tomato.png');
+  background-size: 550px;
+  background-repeat: no-repeat;
 }
 
 #work, #rest {
@@ -41,13 +59,26 @@ li {
 }
 
 body {
-    background-image: url("../images/tomato-photo1-l.jpg");
+    background-image: url("../images/bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
-.red {
-  color: red;
+.yellow {
+  color: rgb(209, 212, 0);
 }
 
 .green {
-  color: rgb(3, 150, 0);
+  color: rgba(27, 70, 26, 1);
+}
+
+button {
+  border: 0;
+  background: transparent;
+}
+
+button:focus {
+  outline: 0;
+  border: dotted black 1px;
+  border-radius: 5px;
 }

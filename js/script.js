@@ -86,11 +86,11 @@ function modeChooser() {
 
 function colorChange() {
   if (mode == 'work') {
-    $('#countdown').removeClass('red');
+    $('#countdown').removeClass('yellow');
     $('#countdown').addClass('green');
   } else if (mode == 'rest') {
     $('#countdown').removeClass('green');
-    $('#countdown').addClass('red');
+    $('#countdown').addClass('yellow');
   };
 };
 
