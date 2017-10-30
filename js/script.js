@@ -22,12 +22,19 @@ function switchMode(startTime) {
     countdown(fromTime);
 };
 
-/*
-* Starts the countdown of the clock.
-* @param {number} [fromTime] The number to start counting down from.
-*/
+function disableButton() {
+  $('.setButton').attr('disabled', true);
+};
+
+function enableButton() {
+  $('.setButton').attr('disabled', false);
+}
+
+// Starts the countdown of the clock.
+
 function countdown(fromTime) {
   console.log(fromTime);
+  disableButton();
   var startTime = setInterval(function() {
     fromTime = fromTime - 1000;
     var minutes = Math.floor((fromTime % (1000 * 60 *60)) / (1000 * 60));
@@ -46,15 +53,18 @@ function countdown(fromTime) {
 
   $('#pause').on('click', function() {
     clearInterval(startTime);
+    enableButton();
   });
   $('#stop').on('click', function() {
     clearInterval(startTime);
+    enableButton();
     alarm.pause();
     alarm.currentTime = 0;
     clockDisplay(mode);
   });
   $('#reset').on('click', function() {
     clearInterval(startTime);
+    enableButton();
     alarm.pause();
     alarm.currentTime = 0;
     mode = 'work';
